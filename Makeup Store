@@ -1,26 +1,25 @@
 --Create a makeup store database
 
-CREATE TABLE nancy_makeup (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, aisle INTEGER, price INTEGER);
+CREATE TABLE makeup_store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, popularity INTEGER, price INTEGER);
 
-INSERT into nancy_makeup VALUES 
-(1, "eyeshadow", 100, 1, 12.45),
-(2, "lipstick", 100, 2, 8.99),
-(3, "blush", 75, 3, 10.99),
-(4, "bronzer", 75, 3, 10.99),
-(5, "gloss", 45, 2, 12.99),
-(6, "eyelashes", 250, 1, 20.00),
-(7, "primers", 50, 3, 14.99),
-(8, "color_corrector", 55, 4, 7.99),
-(9, "mascara", 100, 1, 12.99),
-(10, "foundations", 250, 4, 16.99),
-(11, "highlighters", 100, 4, 14.99),
-(12, "eyeliners", 100, 1, 6.99),
-(13, "liquid eyeliners", 100, 1, 8.99),
-(14, "glitters", 78, 1, 14.99),
-(15, "matte_lipsticks", 75, 2, 9.99);
+INSERT into makeup_store VALUES (1, "eyeshadows", 400, 100, 12.45);
+INSERT into makeup_store VALUES (2, "lipsticks", 400, 76, 8.99);
+INSERT into makeup_store VALUES (3, "blushes", 350, 79, 10.99);
+INSERT into makeup_store VALUES (4, "bronzers", 350, 80, 10.99);
+INSERT into makeup_store VALUES (5, "glosses", 200, 56 , 12.99);
+INSERT into makeup_store VALUES (6, "false eyeslashes", 500, 100, 20.00);
+INSERT into makeup_store VALUES (7, "primers", 250, 50, 14.99);
+INSERT into makeup_store VALUES (8, "color_correctors", 150, 75, 7.99);
+INSERT into makeup_store VALUES (9, "mascaras", 400, 96 , 12.99);
+INSERT into makeup_store VALUES (10, "foundations", 600, 100, 16.99);
+INSERT into makeup_store VALUES (11, "highlighters", 300, 98, 14.99);
+INSERT into makeup_store VALUES (12, "eyeliners", 350, 99, 6.99);
+INSERT into makeup_store VALUES (13, "makeup remover", 400, 100, 18.99);
+INSERT into makeup_store VALUES (14, "toners", 230, 50, 6.99);
+INSERT into makeup_store VALUES (15, "mositurizers", 230, 75, 50.00);
 
 --display the databse ordered by price.
-Select * FROM nancy_makeup GROUP BY price asc;
+SELECT * FROM makeup_store GROUP BY price;
 
---what is the total price of all items by each aisle?
-Select aisle, SUM(price) FROM nancy_makeup GROUP BY aisle;
+--what are the five most popluar items?
+SELECT name, price, popularity FROM makeup_store ORDER BY popularity desc limit 5;
