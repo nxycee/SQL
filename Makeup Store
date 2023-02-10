@@ -23,3 +23,6 @@ SELECT * FROM makeup_store GROUP BY price;
 
 --what are the five most popluar items?
 SELECT name, price, popularity FROM makeup_store ORDER BY popularity desc limit 5;
+
+--what is the avg price of items in the store?
+SELECT AVG(price) FROM makeup_store;  
